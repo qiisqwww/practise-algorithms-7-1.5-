@@ -1,6 +1,6 @@
 #include <iostream>
-#include "List.h"
 #include "Node.h"
+#include "List.h"
 
 // Конструктор
 List::List() : first(nullptr), last(nullptr){}
@@ -34,7 +34,7 @@ void List::print() {
 		pNode = pNode->next;
 	}
 
-	std::cout << std::endl;
+	std::cout << "\n\n";
 }
 
 Node* List::find(std::string _val) {
