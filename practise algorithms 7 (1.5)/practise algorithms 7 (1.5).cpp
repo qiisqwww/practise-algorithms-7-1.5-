@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <random>
-#include <map>
+#include <set>
 #include "Node.h"
 #include "List.h"
 
@@ -9,25 +9,22 @@
 List getL(List L1, List L2) {
 	List L;
 	
-	// Создаем частотный словарь
-	std::map<std::string, int> freqDict;
+	// Создаем множество значений L1 и L2 и заполняем его
+	std::set < std::string > values;
 
 	Node* L1Node = L1.first;
 	Node* L2Node = L2.first;
 	while (L1Node->next && L2Node->next) {
-		if (freqDict.find(L1Node->val) == freqDict.end()) freqDict[L1Node->val] = 1;
-		else freqDict[L1Node->val]++;
-
-		if (freqDict.find(L2Node->val) == freqDict.end()) freqDict[L2Node->val] = 1;
-		else freqDict[L2Node->val]++;
+		values.insert(L1Node->val);
+		values.insert(L2Node->val);
 
 		L1Node = L1Node->next;
 		L2Node = L2Node->next;
 	}
 
 	// Заполняем List L
-	for (auto& item : freqDict) {
-		L.pushBack(item.first);
+	for (auto value : values) {
+		L.pushBack(value);
 	}
 
 	return L;
