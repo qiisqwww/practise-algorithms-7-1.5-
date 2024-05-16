@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <string>
 #include <random>
-#include "Node.cpp"
-#include "List.cpp"
+#include "Node.h"
+#include "List.h"
 
 
 int main()
